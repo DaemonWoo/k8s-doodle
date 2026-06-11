@@ -23,3 +23,8 @@ spec:
                 configMapKeyRef:
                   name: hello-config
                   key: GREETING
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: hello-secret
+                  key: API_KEY
