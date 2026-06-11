@@ -17,3 +17,9 @@ spec:
         - name: hello
           image: hello-python:v1
           imagePullPolicy: Never
+          env:
+            - name: GREETING
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-config
+                  key: GREETING
