@@ -1,0 +1,8 @@
+replicaCount: 1
+
+image:
+  repository: hello-python
+  tag: dev
+  pullPolicy: Never
+
+greeting: Hello DEV

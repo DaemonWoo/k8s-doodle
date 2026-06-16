@@ -1,0 +1,8 @@
+replicaCount: 3
+
+image:
+  repository: hello-python
+  tag: v3
+  pullPolicy: IfNotPresent
+
+greeting: Hello PROD
