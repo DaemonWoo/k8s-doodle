@@ -28,3 +28,7 @@ spec:
                 secretKeyRef:
                   name: hello-secret
                   key: API_KEY
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: hello-pvc
