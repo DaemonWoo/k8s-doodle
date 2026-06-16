@@ -1,4 +1,5 @@
 import os
+import socket
 
 from flask import Flask
 
@@ -17,7 +18,15 @@ def hello():
             f.write("Hello from Persistent Volume!")
 
     with open(FILE) as f:
-        return f.read()
+        return f"{f.read()} and from {socket.gethostname()}"
+
+@app.route("/health")
+def health():
+    return "ok", 200
+
+@app.route("/ready")
+def ready():
+    return "ready", 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
