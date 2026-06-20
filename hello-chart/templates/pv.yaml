@@ -1,0 +1,16 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "hello-chart.fullname" . }}-pv
+spec:
+  capacity:
+    storage: {{ .Values.persistence.size }}
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ .Values.persistence.storageClassName }}
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: {{ .Values.persistence.hostPath }}
+    type: DirectoryOrCreate
+{{- end }}

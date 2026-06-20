@@ -63,7 +63,7 @@ appPort: 5000
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: true
-  className: ""
+  className: nginx
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -181,4 +181,7 @@ secret:
   apiKey: "spr-srt-key"
 
 persistence:
+  enabled: true
   size: 1Gi
+  storageClassName: hello-local
+  hostPath: /var/local/hello-chart-data
